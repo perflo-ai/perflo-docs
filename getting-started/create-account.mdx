@@ -10,7 +10,7 @@ Perflo accounts are self-custodial, but they work like a normal app. You sign up
 
 <Steps>
   <Step title="Enter your email">
-    Open the app or web app and enter your email address.
+    [Open the app](https://app.perfolio.ai) and enter your email address.
   </Step>
   <Step title="Confirm the one-time code">
     We send a 6-digit code to your inbox. Enter it to sign in. This code is your login. Never share it with anyone, including anyone claiming to be Perflo support.
@@ -25,6 +25,10 @@ Perflo accounts are self-custodial, but they work like a normal app. You sign up
 ## What you should know
 
 **There is no seed phrase.** Your keys are created and protected for you inside secure infrastructure that Perflo cannot read. You never need to write down 12 words, and there is no seed phrase for a scammer to phish.
+
+<Note>
+**Under the hood:** Perflo uses [Privy](https://privy.io) to create your account and the secure wallet behind it. Your keys are generated inside Privy's secure hardware and split so that no one — not Perflo, not Privy — ever holds them in full. If you'd like the technical detail, see the [Privy documentation](https://docs.privy.io/security/overview).
+</Note>
 
 **You own the account.** The address you see in the app is yours. Perflo operates services around it, but it cannot move your money on its own. Anything that moves funds happens under permissions you grant and can revoke. See [How Perflo works](/concepts/how-perflo-works).
 

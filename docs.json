@@ -30,6 +30,15 @@
         ]
       },
       {
+        "group": "Trust and safety",
+        "pages": [
+          "concepts/how-perflo-works",
+          "concepts/guardrails",
+          "reference/security",
+          "concepts/fees-and-limits"
+        ]
+      },
+      {
         "group": "Your money",
         "pages": [
           "money/cash",
@@ -64,15 +73,6 @@
           "agents/security",
           "agents/errors-and-denials",
           "agents/troubleshooting"
-        ]
-      },
-      {
-        "group": "Trust and safety",
-        "pages": [
-          "concepts/how-perflo-works",
-          "concepts/guardrails",
-          "reference/security",
-          "concepts/fees-and-limits"
         ]
       },
       {
