@@ -9,51 +9,40 @@ import { marketplaceSize } from '/snippets/marketplace-size.mdx';
 
 Perflo is a compliant money platform for humans and their AI agents. It holds a Money Services Business (MSB) registration and gives individuals, businesses, and the agents that work for them regulated access to accounts, cards, trading, and global payments, all from one balance.
 
-It's also non-custodial: your money sits in an account that only you control, on public infrastructure you can verify yourself. Trading routes to established public venues — Perflo runs no exchange and never takes the other side of your trade.
+It's also non-custodial: your money sits in an account that only you control, on public infrastructure you can verify yourself. Trading routes to established public venues. Perflo runs no exchange and never takes the other side of your trade.
 
 ## What you can do
 
+Everything below works two ways. Do it yourself in the app, or let a connected agent do it for you inside hard limits you set. Either way, every action lands in your activity feed in real time.
+
 <CardGroup cols={2}>
   <Card title="Hold and move money" icon="wallet" href="/money/cash">
-    Keep a digital dollar balance, receive bank transfers, and pay out to more than 45 currencies.
+    Keep a digital dollar balance, receive bank transfers, and pay out to more than 45 currencies, mostly on instant local rails.
   </Card>
   <Card title="Buy assets" icon="chart-pie" href="/money/assets">
     Own BTC, ETH, and tokenized gold from small amounts, with automatic buying on a schedule if you want it.
   </Card>
-  <Card title="Trade" icon="chart-line" href="/trading/futures">
-    Futures on crypto, US stocks, commodities, FX, and indices, plus prediction markets on real-world events.
+  <Card title="Trade futures" icon="chart-line" href="/trading/futures">
+    Go long or short on crypto, US stocks, commodities, FX, and indices, around the clock, every day.
+  </Card>
+  <Card title="Predict real-world events" icon="square-poll-vertical" href="/trading/predictions">
+    Take positions on elections, sports, economics, and culture on Polymarket, the largest prediction market.
   </Card>
   <Card title="Earn and borrow" icon="percent" href="/money/earn">
     Put idle cash into yield vaults, or borrow against your assets without selling them.
   </Card>
   <Card title="Spend with cards" icon="credit-card" href="/cards-banking/virtual-cards">
-    Create virtual Mastercards funded from your balance and accepted worldwide.
+    Create virtual Mastercards funded from your balance and accepted worldwide, one per subscription if you like.
   </Card>
-  <Card title="Put an AI agent to work" icon="robot" href="/agents/overview">
-    Connect Claude, ChatGPT, or any AI agent to your account with strict spending limits you control.
+  <Card title="Let your agent buy its tools" icon="database" href="/agents/services">
+    Your agent pays per request for the data, search, and media tools a job needs, usually cents, from a budget you set.
   </Card>
-</CardGroup>
-
-## What your agent can do with money
-
-Connecting an agent isn't just read-only access to your balance. Inside the budget and limits you set, an agent can buy, trade, pay, and automate on your behalf, and every action lands in your activity feed in real time.
-
-<CardGroup cols={2}>
-  <Card title="Pay per use for data and tools" icon="database" href="/agents/services">
-    Your agent buys exactly what it needs to finish a job (fresh data, web search, image and video generation, email, phone calls) and pays per request, usually cents, over the open x402 pay-per-use standard. No subscriptions, no API keys. The marketplace holds {marketplaceSize}.
-  </Card>
-  <Card title="Trade prediction markets" icon="square-poll-vertical" href="/trading/predictions">
-    A big unlock for agents: take positions on real-world outcomes across elections, sports, economics, and culture on Polymarket, the largest prediction market. Quality filters block thin markets and long-shot bets automatically.
-  </Card>
-  <Card title="Send payments to people and businesses" icon="paper-plane" href="/cards-banking/payouts-and-transfers">
-    Pay individuals and companies directly from your balance in more than 45 currencies, mostly on instant or same-day local rails. Agents can only pay recipients you have saved and allowlisted; adding a new one always requires you.
-  </Card>
-  <Card title="Build your own automated workflows" icon="arrows-spin" href="/agents/overview">
-    Describe standing rules in plain language ("if BTC dips 2%, buy $50", "pay my researcher every Friday") and your agent runs them for you, inside the same caps as everything else.
+  <Card title="Automate your money" icon="arrows-spin" href="/agents/overview">
+    Describe rules in plain language, like "if BTC dips 2%, buy $50" or "pay my researcher every Friday," and your agent runs them.
   </Card>
 </CardGroup>
 
-Every purchase, trade, and payment comes out of a budget you set, and the kill switch stops everything at once. See [Agent spending and budgets](/agents/spending-and-budgets) for how the limits work.
+The agent side comes with hard guarantees. An agent never gets your keys, can only pay recipients you saved, can't raise its own limits, and stops instantly on the kill switch. The tool marketplace holds {marketplaceSize}. See [Agent spending and budgets](/agents/spending-and-budgets) for how the limits work.
 
 ## Who Perflo is for
 
@@ -65,9 +54,7 @@ Every purchase, trade, and payment comes out of a budget you set, and the kill s
 
 ## Where to start
 
-Ready to dive in? [Open the app](https://app.perfolio.ai) and sign up — it takes about a minute.
-
-The [Quickstart](/quickstart) takes you from sign-up to money in your account in about ten minutes. If you'd rather go step by step:
+Ready to dive in? [Open the app](https://app.perfolio.ai) and sign up, then follow the [Quickstart](/quickstart) from sign-up to money in your account in about ten minutes. If you'd rather go step by step:
 
 <Steps>
   <Step title="Create your account">
