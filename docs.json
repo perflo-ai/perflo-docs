@@ -8,6 +8,11 @@
     "light": "#E8843C",
     "dark": "#E8843C"
   },
+  "fonts": {
+    "family": "Camera Plain Variable",
+    "source": "/fonts/CameraPlainVariable.woff2",
+    "format": "woff2"
+  },
   "favicon": "/favicon.svg",
   "logo": {
     "light": "/logo/light.png",
