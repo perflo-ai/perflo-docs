@@ -6,11 +6,11 @@ icon: "gauge-high"
 
 import { marketplaceSize } from '/snippets/marketplace-size.mdx';
 
-**Goal:** an agent that can spend — inside a budget it cannot exceed and you can revoke at any time. You need a [connected agent](/agents/connect) first.
+**Goal:** an agent that can spend, inside a budget it cannot exceed and that you can revoke at any time. You need a [connected agent](/agents/connect) first.
 
 ## How agents pay for things
 
-Agents on Perflo pay for third-party services per call using an open standard called x402: a service quotes a price per request, and the agent pays exactly that, instantly, from your balance. (Settlement happens in digital dollars — USDC or USDT — on the Base network, with Tempo as a second rail; your agent handles all of it.) No subscriptions, no API keys, no cards on file with dozens of vendors. Your agent pays cents for exactly what it uses.
+Agents on Perflo pay for third-party services per call using an open standard called x402. A service quotes a price per request, and the agent pays exactly that, instantly, from your balance. (Settlement happens in digital dollars, USDC or USDT, on the Base network, with Tempo as a second rail; your agent handles all of it.) There are no subscriptions and no API keys, and you never leave a card on file with dozens of vendors. Your agent pays cents for exactly what it uses.
 
 ## The service marketplace
 
@@ -25,11 +25,11 @@ Every spending session you grant has:
 - asset restrictions,
 - an expiry date (30 days default, 90 maximum).
 
-Every payment is checked against the budget before it is approved — and cumulative caps count money still in flight, so concurrent requests cannot race past a cap together. Denials return a stable machine-readable code to the agent and appear in your activity feed; every code is documented on [Errors and denials](/agents/errors-and-denials).
+Every payment is checked against the budget before it is approved. Cumulative caps also count money still in flight, so concurrent requests cannot race past a cap together. When a payment is denied, the agent gets a stable machine-readable code and the denial shows up in your activity feed; every code is documented on [Errors and denials](/agents/errors-and-denials).
 
 ## Auto top-up, your way
 
-You can create a rule that refills an agent's budget from your balance or Earn when it runs low, but only within a monthly ceiling you define. The ceiling cannot be raised by the agent.
+You can create a rule that refills an agent's budget from your balance or Earn when it runs low, but only within a monthly ceiling you define. The agent cannot raise that ceiling.
 
 ## The kill switch
 
@@ -41,13 +41,13 @@ Agent spending is itemized like a card statement: which service, which agent ses
 
 ## If something goes wrong
 
-- **The agent reports a denial:** match the code on [Errors and denials](/agents/errors-and-denials) — most fixes are one setting in the app.
-- **The agent stopped mid-task:** expiry, cap, or kill switch — see [Agent troubleshooting](/agents/troubleshooting).
+- **The agent reports a denial:** match the code on [Errors and denials](/agents/errors-and-denials). Most fixes are one setting in the app.
+- **The agent stopped mid-task:** it usually hit an expiry, a cap, or the kill switch. See [Agent troubleshooting](/agents/troubleshooting).
 
 <Tip>
 A good starter budget: a small daily cap, five allowlisted services, 30-day expiry. Expand once you have watched a week of activity.
 </Tip>
 
 <Note>
-Marketplace services are operated by third parties, and agent spending is real spending — budgets cap how much can go out, not whether a paid result is useful. Agent activity is screened and monitored exactly like human activity.
+Marketplace services are operated by third parties, and agent spending is real spending. Budgets cap how much can go out, not whether a paid result is useful. Agent activity is screened and monitored exactly like human activity.
 </Note>

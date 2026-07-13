@@ -1,12 +1,12 @@
 ---
 title: "Borrow"
-description: "Borrow dollars against your assets without selling them. Loan health is monitored around the clock."
+description: "Borrow dollars against your assets without selling them. Perflo watches your loan health around the clock."
 icon: "hand-holding-dollar"
 ---
 
 import RiskNote from '/snippets/risk-note.mdx';
 
-**Goal:** cash in your balance without selling your holdings. You need a verified, funded account with assets to pledge — borrowing unlocks once your balance passes the investing threshold (see [Guardrails](/concepts/guardrails)).
+**Goal:** cash in your balance without selling your holdings. You need a verified, funded account with assets to pledge. Borrowing unlocks once your balance passes the investing threshold (see [Guardrails](/concepts/guardrails)).
 
 Borrowing lets you unlock cash from your holdings while keeping your position. Loans are over-collateralized lending positions on Morpho, a public, audited lending protocol: you pledge a supported asset as collateral and borrow USDT against it. The app shows which collateral markets are available to you.
 
@@ -28,7 +28,7 @@ Borrowing lets you unlock cash from your holdings while keeping your position. L
 
 Every loan has a health factor: the cushion between your collateral value and your debt. If your collateral falls in price, your health factor drops. If it drops far enough, the lending protocol liquidates part of your collateral to repay the debt, and liquidation carries a penalty. This is a property of public lending markets, not a Perflo decision, and it is the main risk of borrowing.
 
-Perflo monitors your loan health continuously, around the clock, and:
+Perflo watches your loan health around the clock, and:
 
 - warns you well before you approach risk,
 - shows you safe maximum amounts for borrowing more or withdrawing collateral, so you cannot stumble into danger through the app,
@@ -42,8 +42,8 @@ At any time you can add collateral, withdraw collateral (within safe bounds), bo
 
 ## If something goes wrong
 
-- **A health warning arrived?** Open the loan and use the one-tap fix — add collateral or repay. Acting early is cheap; liquidation is not.
-- **An agent's borrow was denied?** `GUARD_MAX_LTV` and the other borrow codes are explained in [Errors and denials](/agents/errors-and-denials) — the LTV check is deliberately conservative, projected against the worst case.
+- **A health warning arrived?** Open the loan and use the one-tap fix: add collateral or repay. Acting early is cheap; liquidation is not.
+- **An agent's borrow was denied?** `GUARD_MAX_LTV` and the other borrow codes are explained in [Errors and denials](/agents/errors-and-denials). The LTV check is deliberately conservative and projected against the worst case.
 
 <Warning>
 Borrowing against a volatile asset can lead to liquidation and loss of collateral. Borrow conservatively and keep alerts on.

@@ -1,6 +1,6 @@
 ---
 title: "How Perflo works"
-description: "Self-custody, session permissions, and public venues. What Perflo can and cannot do with your money — and the trade-offs."
+description: "Self-custody, session permissions, and public venues. What Perflo can and cannot do with your money, and where the trade-offs are."
 icon: "diagram-project"
 ---
 
@@ -14,7 +14,7 @@ When you sign up, Perflo provisions a smart account on public blockchains. You c
 
 ## 2. Actions run under permissions you grant
 
-Doing things for you (executing a trade you tapped, running an automation you set, letting your AI agent spend within a budget) requires permission. You grant these as sessions: narrow, expiring permissions with hard limits attached. A session for agent spending, for example, carries caps per hour, day, and month, a list of allowed recipients, and an expiry date. Perflo checks the limits before anything is approved, and the limits themselves are enforced by the account, not by trust.
+Anything Perflo does for you requires permission first, whether that's executing a trade you tapped, running an automation you set, or letting your AI agent spend within a budget. You grant these as sessions: narrow, expiring permissions with hard limits attached. A session for agent spending, for example, carries caps per hour, day, and month, a list of allowed recipients, and an expiry date. Perflo checks the limits before anything is approved, and the limits themselves are enforced by the account, not by trust.
 
 Two things never happen under a session:
 
@@ -40,15 +40,15 @@ Perflo runs no exchange, holds no order book, and never takes the other side of 
 | Card spending | Mastercard network |
 | Bank transfers and payouts | Local banking rails |
 
-Prices, rates, and liquidity come from those venues. Perflo's job is execution, safety, and a single clean balance across all of it.
+Prices, rates, and liquidity come from those venues. Perflo handles the execution and the safety checks, and shows you one clean balance across all of it.
 
-## What this design costs you, honestly
+## What this design costs you
 
-Self-custody and public venues are a trade, not a free lunch:
+Self-custody and public venues are a trade, and it helps to see both sides of it:
 
-- **No deposit insurance.** Your balance is not a bank deposit. What protects it instead — your own account, verifiable holdings, issuer reserves — is explained on [Cash](/money/cash).
+- **No deposit insurance.** Your balance is not a bank deposit. [Cash](/money/cash) explains what protects it instead: your own account, verifiable holdings, and issuer reserves.
 - **Market conditions are real.** Rates, spreads, and liquidity come from public venues; Perflo passes them through rather than smoothing them over. See [Fees and limits](/concepts/fees-and-limits).
-- **What you get back:** Perflo can never lend out your balance, freeze it for its own reasons, or fail with your money on its books. And everything is checkable — you never have to take our word for anything.
+- **What you get back:** Perflo can never lend out your balance, freeze it for its own reasons, or fail with your money on its books. And everything is checkable, so you never have to take our word for anything.
 
 ## What Perflo is not
 

@@ -6,18 +6,18 @@ icon: "plug"
 
 import AgentGuardrails from '/snippets/agent-guardrails.mdx';
 
-**Goal:** your AI assistant connected to your Perflo account and answering "what's my balance?" — in about five minutes for AI apps. You need a verified Perflo account.
+**Goal:** your AI assistant connected to your Perflo account and answering "what's my balance?" For AI apps this takes about five minutes. You need a verified Perflo account.
 
-Perflo connects to AI apps through an open standard called MCP (the Model Context Protocol) — the same way your assistant already talks to other tools. There are two ways to connect, and both use one Perflo sign-in:
+Perflo connects to AI apps through an open standard called MCP (the Model Context Protocol), the same way your assistant already talks to other tools. There are two ways to connect, and both use one Perflo sign-in:
 
-- **A hosted connector** you add by URL — the fast path, for Claude, ChatGPT, Perplexity, and other apps that accept custom connectors.
-- **A local connector** you run yourself — for coding agents like Claude Code and for Claude Desktop.
+- **A hosted connector** you add by URL, the fast path for Claude, ChatGPT, Perplexity, and other apps that accept custom connectors.
+- **A local connector** you run yourself, for coding agents like Claude Code and for Claude Desktop.
 
 Pick whichever matches how you work. Everything your agent can do stays inside the guardrails you set.
 
 ## Connect Claude, ChatGPT, or another AI app (about 5 minutes)
 
-You paste one address into your assistant's settings, sign in to Perflo in your browser, and you are done — no files, no install.
+You paste one address into your assistant's settings, sign in to Perflo in your browser, and you are done. There is nothing to install.
 
 <Steps>
   <Step title="Open your assistant's connector settings">
@@ -33,12 +33,12 @@ You paste one address into your assistant's settings, sign in to Perflo in your 
     Your assistant recognizes it as a Perflo connector and opens a secure sign-in.
   </Step>
   <Step title="Sign in and approve">
-    The Perflo sign-in screen opens in your browser. It shows exactly what the connection can do, and you approve it. This uses a secure sign-in standard (OAuth) — the connector never sees or stores your Perflo password, and you can revoke it anytime from the Perflo app.
+    The Perflo sign-in screen opens in your browser. It shows exactly what the connection can do, and you approve it. This uses a secure sign-in standard (OAuth): the connector never sees or stores your Perflo password, and you can revoke it anytime from the Perflo app.
   </Step>
   <Step title="Check it works">
     Ask your assistant: **"what's my Perflo balance?"**
 
-    **You'll see:** your balance in the reply. That's the connection working — reads like this never need approval.
+    **You'll see:** your balance in the reply. That's the connection working. Reads like this never need approval.
   </Step>
   <Step title="Set a budget before it can spend">
     Reading works right away. Before an agent can spend, set a guardrail: a cap, an allowlist, and an expiry. See [Agent spending and budgets](/agents/spending-and-budgets).
@@ -70,7 +70,7 @@ Once connected, just talk to your assistant in plain language: "what's my balanc
 One sign-in gives your assistant two things:
 
 - **Your money.** See your portfolio and balances, buy and sell assets like BTC, ETH, and gold, borrow, earn yield, open futures positions, place prediction positions, and review your history.
-- **Paid online services.** Find and pay for pay-per-use services on your behalf — the agent searches [the marketplace](/agents/services), checks the exact price, and pays only within your cap.
+- **Paid online services.** Find and pay for pay-per-use services on your behalf. The agent searches [the marketplace](/agents/services), checks the exact price, and pays only within your cap.
 
 ### The safety model
 
@@ -81,9 +81,9 @@ This does not change no matter which app connects:
 Two more properties complete the picture:
 
 - **Reads never need approval.** Checking balances and prices is always free to do.
-- **Spending actions run through your AI app's own permission prompt first**, then Perflo's guardrail check — and moving money *out* of Perflo always requires you to sign in your browser personally.
+- **Spending actions run through your AI app's own permission prompt first**, then Perflo's guardrail check. Moving money *out* of Perflo always requires you to sign in your browser personally.
 
-The full threat model — including what happens if your assistant gets manipulated — is on [Agent security](/agents/security).
+The full threat model, including what happens if your assistant gets manipulated, is on [Agent security](/agents/security).
 
 ## Connect a coding agent (Claude Code or Claude Desktop)
 
@@ -109,19 +109,19 @@ For terminal and desktop agents, you run a small Perflo connector locally and po
     ```
   </Step>
   <Step title="Sign in once">
-    Run the `login` tool once — it opens a browser sign-in and remembers you afterward. (Advanced: you can instead set a `GRANTCASH_TOKEN` environment variable to skip the interactive login.) Your sign-in is saved locally at `~/.grant-cash/credentials.json`.
+    Run the `login` tool once. It opens a browser sign-in and remembers you afterward. (Advanced: you can instead set a `GRANTCASH_TOKEN` environment variable to skip the interactive login.) Your sign-in is saved locally at `~/.grant-cash/credentials.json`.
 
-    **You'll see:** the agent answering "what's my balance?" — same check as the hosted path.
+    **You'll see:** the agent answering "what's my balance?", the same check as the hosted path.
   </Step>
 </Steps>
 
 <Note>
-`grant-cash` is the technical identifier for Perflo's connector — you'll see it in the config key, the credentials path, and the skill folder below. It connects to the same Perflo account.
+`grant-cash` is the technical identifier for Perflo's connector. You'll see it in the config key, the credentials path, and the skill folder below. It connects to the same Perflo account.
 </Note>
 
 ### Add the Perflo playbook (optional but recommended)
 
-The connector gives your agent the tools; a companion **skill** teaches it the multi-step playbooks — how to trade, borrow, earn, use futures and prediction markets, handle funding and identity verification, transfer funds, and pay for agent services well. Adding it makes your agent noticeably smarter about money.
+The connector gives your agent the tools; a companion **skill** teaches it the multi-step playbooks: how to trade, borrow, earn, use futures and prediction markets, handle funding and identity verification, transfer funds, and pay for agent services well. Adding it makes your agent noticeably smarter about money.
 
 <Tabs>
   <Tab title="claude.ai">
