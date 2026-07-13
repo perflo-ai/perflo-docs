@@ -1,6 +1,6 @@
 ---
 title: "Agent spending and budgets"
-description: "How agents pay per call, how budgets with hard caps work, auto top-up, statements, and the kill switch."
+description: "How agents pay per call, how budgets with hard caps work, statements, and the kill switch."
 icon: "gauge-high"
 ---
 
@@ -18,22 +18,24 @@ Perflo curates a marketplace of {marketplaceSize} that an agent can use out of t
 
 ## Budgets
 
-Every spending session you grant has:
+A budget is a guardrail session: an agent spending allowance, kept separate from your wealth (your cash, assets, savings, and positions), which an agent can never withdraw or send out. Every allowance you grant carries:
 
-- caps per hour, per day, and per month,
-- a recipient allowlist (services and addresses),
-- asset restrictions,
-- an expiry date (30 days default, 90 maximum).
+- a **per-call price cap** — the most a single service call is allowed to charge,
+- a **confirm-first threshold** — charges above a limit you set come back to you for explicit approval before the agent can pay,
+- **cumulative caps** per hour, per day, and per month,
+- a **recipient allowlist and marketplace gate** — payments go only to verified marketplace services, optionally narrowed to a list of specific recipients (up to 64); an unknown destination is refused outright,
+- **one currency** for the session (USDC or USDT), and
+- an **expiry date** (30 days default, 90 maximum).
 
-Every payment is checked against the budget before it is approved. Cumulative caps also count money still in flight, so concurrent requests cannot race past a cap together. When a payment is denied, the agent gets a stable machine-readable code and the denial shows up in your activity feed; every code is documented on [Errors and denials](/agents/errors-and-denials).
+Every payment is checked against the budget before it is approved. Cumulative caps also count money still in flight, so concurrent requests cannot race past a cap together, and a denied payment is final — no retries, no rerouting. When a payment is denied, the agent gets a stable machine-readable code and the denial shows up in your activity feed; every code is documented on [Errors and denials](/agents/errors-and-denials). For how these rules are enforced and where your wealth's limits live, see [Guardrails](/concepts/guardrails).
 
-## Auto top-up, your way
+## Budgets never refill themselves
 
-You can create a rule that refills an agent's budget from your balance or Earn when it runs low, but only within a monthly ceiling you define. The agent cannot raise that ceiling.
+A budget is a hard ceiling, not a target that keeps topping itself up. When a cap is reached, spending stops — it never quietly pulls more from your balance to keep going. Raising a budget is always a deliberate change you make yourself; nothing an agent does can refill or extend it.
 
 ## The kill switch
 
-Say "stop agent spending" to your assistant, tap the switch in the app, or revoke the session in settings. All agent spending stops immediately, everywhere, and stays stopped until you re-enable it. Re-enabling is covered in [Agent troubleshooting](/agents/troubleshooting).
+Say "stop agent spending" to your assistant, tap the switch in the app, or revoke the session in settings. All agent spending stops immediately and everywhere, even in the middle of a task, and stays stopped until you re-enable it. Nothing pending survives it. Re-enabling is covered in [Agent troubleshooting](/agents/troubleshooting).
 
 ## Statements
 
