@@ -9,30 +9,31 @@
     "dark": "#E8843C"
   },
   "favicon": "/favicon.svg",
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "contextual": {
+    "options": ["copy", "view", "chatgpt", "claude"]
+  },
   "navigation": {
     "groups": [
       {
-        "group": "Getting started",
+        "group": "Get started",
         "pages": [
           "introduction",
+          "quickstart",
           "getting-started/create-account",
           "getting-started/verify-identity",
-          "getting-started/fund-your-account"
+          "getting-started/fund-your-account",
+          "getting-started/troubleshooting"
         ]
       },
       {
-        "group": "Core concepts",
-        "pages": [
-          "concepts/how-perflo-works",
-          "concepts/guardrails",
-          "concepts/fees-and-limits"
-        ]
-      },
-      {
-        "group": "Money",
+        "group": "Your money",
         "pages": [
           "money/cash",
-          "money/gold",
+          "money/assets",
           "money/earn",
           "money/borrow"
         ]
@@ -45,11 +46,12 @@
         ]
       },
       {
-        "group": "Cards and banking",
+        "group": "Cards and payments",
         "pages": [
           "cards-banking/virtual-cards",
           "cards-banking/bank-accounts",
-          "cards-banking/payouts-and-transfers"
+          "cards-banking/payouts-and-transfers",
+          "cards-banking/troubleshooting"
         ]
       },
       {
@@ -57,23 +59,57 @@
         "pages": [
           "agents/overview",
           "agents/connect",
-          "agents/spending-and-budgets"
+          "agents/spending-and-budgets",
+          "agents/services",
+          "agents/security",
+          "agents/errors-and-denials",
+          "agents/troubleshooting"
         ]
       },
       {
-        "group": "Reference",
+        "group": "Trust and safety",
         "pages": [
-          "reference/networks-and-contracts",
-          "reference/supported-currencies",
+          "concepts/how-perflo-works",
+          "concepts/guardrails",
           "reference/security",
-          "reference/faq"
+          "concepts/fees-and-limits"
+        ]
+      },
+      {
+        "group": "Help and reference",
+        "pages": [
+          "reference/faq",
+          "changelog",
+          "reference/supported-currencies",
+          "reference/networks-and-contracts"
         ]
       }
     ]
   },
+  "redirects": [
+    {
+      "source": "/money/gold",
+      "destination": "/money/assets"
+    }
+  ],
   "footer": {
     "socials": {
       "website": "https://perflo.ai"
-    }
+    },
+    "links": [
+      {
+        "header": "Help",
+        "items": [
+          {
+            "label": "Contact support",
+            "href": "mailto:support@perflo.ai"
+          },
+          {
+            "label": "Report a security issue",
+            "href": "mailto:security@perflo.ai"
+          }
+        ]
+      }
+    ]
   }
 }

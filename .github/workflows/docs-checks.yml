@@ -1,0 +1,36 @@
+name: Docs checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Validate docs.json syntax
+        run: jq empty docs.json
+
+      - name: Check for broken links
+        run: npx --yes mint broken-links
+
+      - name: Every page must be in the navigation
+        run: |
+          missing=0
+          nav=$(jq -r '[.navigation.groups[].pages[]] | .[]' docs.json)
+          while IFS= read -r file; do
+            page="${file#./}"
+            page="${page%.mdx}"
+            if ! printf '%s\n' "$nav" | grep -qx "$page"; then
+              echo "::error file=$file::$file is not listed in docs.json navigation"
+              missing=1
+            fi
+          done < <(find . -name '*.mdx' -not -path './snippets/*' -not -path './perflo-docs/*' -not -path './node_modules/*')
+          exit $missing

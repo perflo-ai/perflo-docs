@@ -1,57 +1,89 @@
 ---
 title: "FAQ"
-description: "Straight answers to the most common questions."
+description: "Straight answers to the most common questions about custody, safety, agents, fees, and availability."
 icon: "circle-question"
 ---
+
+import SupportEscalation from '/snippets/support-escalation.mdx';
+
+## About Perflo
 
 <AccordionGroup>
 
 <Accordion title="Is Perflo a bank?">
-No. Perflo is a compliant money platform holding a Money Services Business (MSB) registration. Bank accounts and cards are delivered on regulated rails, and your assets are held in your own self-custodial account rather than on a bank's balance sheet. Balances are not covered by deposit insurance.
+No. Perflo is a compliant money platform holding a Money Services Business (MSB) registration. Bank accounts and cards are delivered on regulated rails, and your assets are held in your own self-custodial account rather than on a bank's balance sheet. Balances are not covered by deposit insurance — see [How Perflo works](/concepts/how-perflo-works) for what protects them instead.
 </Accordion>
 
 <Accordion title="Who actually holds my money?">
-You do. Your cash (USDT/USDC), gold (XAUT), and other assets sit in a smart account you control on public blockchains. You can verify your holdings independently on a block explorer. Perflo operates services around your account under permissions you grant and can revoke.
+You do. Your cash and assets sit in an account you control on public infrastructure, and you can verify your holdings independently. Perflo operates services around your account under permissions you grant and can revoke — see [Cash](/money/cash).
 </Accordion>
 
 <Accordion title="What happens to my money if Perflo goes offline?">
-Your assets remain in your own account on public networks, and the venues Perflo routes to (Hyperliquid, Polymarket, Morpho) are public protocols that exist independently of Perflo. Perflo going offline would interrupt the app experience, not your ownership.
-</Accordion>
-
-<Accordion title="Can an AI agent steal my money?">
-An agent can only act inside the guardrails you set: hard caps per hour, day, and month, an allowlist of recipients, asset restrictions, and an expiry. It cannot withdraw to external addresses (that always requires you), cannot raise its own limits, and dies instantly on the kill switch. Start with low caps and a short allowlist.
-</Accordion>
-
-<Accordion title="Is my gold real?">
-Gold is held as XAUT (Tether Gold). Each token represents one troy fine ounce of allocated physical gold held by the issuer, and the token contract is public. See [Networks and contracts](/reference/networks-and-contracts). Gold prices move; a gold holding can lose dollar value.
-</Accordion>
-
-<Accordion title="Why do I never pay gas fees?">
-Perflo sponsors all network fees. The price you see on a confirmation screen is the full cost.
+Your assets remain in your own account on public networks, and the venues Perflo routes to (Hyperliquid, Polymarket, Morpho) are public protocols that exist independently of Perflo. Perflo going offline would interrupt the app experience, not your ownership — see [How Perflo works](/concepts/how-perflo-works).
 </Accordion>
 
 <Accordion title="Which countries are supported?">
-Availability depends on your country of residence and applicable regulation, and some features (for example prediction markets or leveraged trading) are restricted in certain places. The app tells you during onboarding and before any restricted feature.
+Availability depends on your country of residence and applicable regulation, and some features (for example prediction markets or leveraged trading) are restricted in certain places. The app tells you during onboarding and before any restricted feature — see [Verify your identity](/getting-started/verify-identity).
 </Accordion>
 
-<Accordion title="What are the fees?">
-Every action shows its full cost before you confirm. Venue-set costs (trading fees, funding rates, spreads, variable lending rates) are passed through and displayed. See [Fees and limits](/concepts/fees-and-limits).
-</Accordion>
+</AccordionGroup>
 
-<Accordion title="How do taxes work?">
-Perflo provides statements and full activity history, including itemized agent spending. Tax treatment depends on your jurisdiction and is your responsibility; the statements are designed to make it easy for you or your accountant.
+## Money and investing
+
+<AccordionGroup>
+
+<Accordion title="What actually backs the assets I hold?">
+BTC and ETH are held as standard wrapped representations (WBTC, WETH) on Ethereum. Gold is held as XAUT (Tether Gold), where each token represents one troy fine ounce of allocated physical gold held by the issuer. Every token contract is public — see [Networks and contracts](/reference/networks-and-contracts).
 </Accordion>
 
 <Accordion title="Can I lose money?">
-Yes. Trading with leverage can lose your entire margin. Prediction positions can expire worthless. Gold and crypto prices fall as well as rise. Borrowing can lead to liquidation of collateral. Yield rates are variable and not guaranteed. Use the risk controls, and never commit money you cannot afford to lose.
+Yes. Trading with leverage can lose your entire margin, prediction positions can expire worthless, asset prices fall as well as rise, borrowing can lead to liquidation of collateral, and yield rates are variable and not guaranteed. Use the risk controls, and never commit money you cannot afford to lose — see [Guardrails](/concepts/guardrails).
 </Accordion>
+
+<Accordion title="Why do I never pay gas fees?">
+Perflo sponsors all network fees, so the price you see on a confirmation screen is the full cost — see [Fees and limits](/concepts/fees-and-limits).
+</Accordion>
+
+<Accordion title="What are the fees?">
+Every action shows its full cost before you confirm, and venue-set costs (trading fees, funding rates, spreads, variable lending rates) are passed through and displayed. See [Fees and limits](/concepts/fees-and-limits).
+</Accordion>
+
+<Accordion title="How do taxes work?">
+Perflo provides statements and full activity history, including itemized agent spending, designed to make things easy for you or your accountant. Tax treatment depends on your jurisdiction and is your responsibility.
+</Accordion>
+
+</AccordionGroup>
+
+## AI agents
+
+<AccordionGroup>
+
+<Accordion title="Can an AI agent steal my money?">
+An agent can only act inside the guardrails you set: hard caps, an allowlist of recipients, asset restrictions, and an expiry. It cannot withdraw to external addresses (that always requires you), cannot raise its own limits, and dies instantly on the kill switch. The full threat model is on [Agent security](/agents/security).
+</Accordion>
+
+<Accordion title="What does an agent see when it's refused?">
+A stable machine-readable code naming the exact limit that stopped it, plus the amounts involved — every code is documented on [Errors and denials](/agents/errors-and-denials).
+</Accordion>
+
+<Accordion title="What can my agent actually buy?">
+Verified pay-per-call services — search, data, media generation, email, and more — each priced per request and paid from the budget you set. Browse categories on [The service marketplace](/agents/services).
+</Accordion>
+
+</AccordionGroup>
+
+## Account
+
+<AccordionGroup>
 
 <Accordion title="How do I close my account?">
 Withdraw or pay out your balances, revoke agent sessions, then request closure in settings. Compliance records are retained as required by law.
 </Accordion>
 
 <Accordion title="How do I get help?">
-In-app support is the fastest route. You can also email support@perflo.ai. Remember: support never asks for your one-time code.
+In-app support is the fastest route; you can also email [support@perflo.ai](mailto:support@perflo.ai). For step-by-step fixes, start with the troubleshooting pages for [getting started](/getting-started/troubleshooting), [cards and payouts](/cards-banking/troubleshooting), or [agents](/agents/troubleshooting). Remember: support never asks for your one-time code.
 </Accordion>
 
 </AccordionGroup>
+
+<SupportEscalation />

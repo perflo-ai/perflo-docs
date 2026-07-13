@@ -4,31 +4,62 @@ description: "Give an AI agent real financial capability with limits you control
 icon: "robot"
 ---
 
-Perflo gives AI agents the same money capabilities you have: check balances, buy gold, trade, place prediction positions, manage loans, create cards, send payments, and pay for third-party services per call. Every capability runs inside guardrails you set, and nothing an agent does can exceed them.
+import AgentGuardrails from '/snippets/agent-guardrails.mdx';
+import { marketplaceSize } from '/snippets/marketplace-size.mdx';
+
+Perflo gives AI agents the same money capabilities you have: check balances, buy assets, trade, place prediction positions, manage loans, create cards, send payments, and pay for third-party services per call. Every capability runs inside guardrails you set, and nothing an agent does can exceed them.
 
 ## What an agent can do
 
 - **Read:** portfolio, prices, positions, loan health, activity.
-- **Money actions:** buy or sell gold and crypto, deposit to Earn, manage loans, open and manage futures positions, place prediction positions, all within your permissions.
-- **Spend:** pay whitelisted recipients, fund virtual cards just in time for purchases, and buy pay-per-call services (search, data, media generation, and thousands more) through the x402 protocol.
-- **Automate:** run standing rules you describe in plain language, such as "if gold dips 2%, buy $50" or "if my loan health drops below the threshold, add collateral."
+- **Money actions:** buy or sell assets like BTC, ETH, and gold, deposit to Earn, manage loans, open and manage futures positions, place prediction positions, all within your permissions.
+- **Spend:** pay whitelisted recipients, fund virtual cards just in time for purchases, and buy from a marketplace of {marketplaceSize} — search, data, media generation, email, and more. See [The service marketplace](/agents/services).
+- **Automate:** run standing rules you describe in plain language, such as "if BTC dips 2%, buy $50" or "if my loan health drops below the threshold, add collateral."
 
 ## What an agent can never do
 
-- Withdraw to an external address you have not approved. That always requires a fresh confirmation from you.
-- Exceed its spending caps or pay a recipient that is not allowlisted.
-- Raise its own limits or extend its own expiry.
-- Survive the kill switch. One tap stops all agent spending everywhere.
+<AgentGuardrails />
+
+Withdrawing to an external address you have not approved is also impossible for an agent — that always requires a fresh confirmation from you.
+
+## How working with an agent actually goes
+
+1. **Connect** your AI app once — a five-minute setup.
+2. **Grant** a budget: caps, an allowlist, an expiry.
+3. **The agent works** inside those limits; every action appears in your activity feed in real time.
+4. **When something is refused**, the agent gets a machine-readable reason and your feed shows which limit stopped it.
+5. **You renew, tighten, or revoke** — or hit the kill switch and stop everything at once.
 
 ## Where agents run
 
 Perflo agents work wherever you already work with AI:
 
-- **Claude, ChatGPT, and other AI apps** via the Perflo MCP server. Your assistant gains Perflo tools directly in chat.
-- **Coding agents and scripts** via the Grant CLI and REST API.
+- **Claude, ChatGPT, and other AI apps** via the Perflo hosted connector. Your assistant gains Perflo tools directly in chat.
+- **Coding agents like Claude Code** via a local Perflo connector you run yourself.
 - **Inside the Perflo app** via plain-language automation rules and a daily morning brief.
 
-See [Connect an agent](/agents/connect) to set this up in a few minutes, and [Agent spending and budgets](/agents/spending-and-budgets) for how budgets, the marketplace, and the kill switch work.
+## Everything agent-related
+
+<CardGroup cols={2}>
+  <Card title="Connect an agent" icon="plug" href="/agents/connect">
+    Hosted connector for AI apps, local connector for coding agents. About five minutes.
+  </Card>
+  <Card title="Spending and budgets" icon="gauge-high" href="/agents/spending-and-budgets">
+    Caps, allowlists, expiry, auto top-up, statements, and the kill switch.
+  </Card>
+  <Card title="The service marketplace" icon="store" href="/agents/services">
+    What your agent can buy, how services are verified, and how pricing works.
+  </Card>
+  <Card title="Agent security" icon="shield-halved" href="/agents/security">
+    The full threat model: manipulation, misbehaving services, runaway agents.
+  </Card>
+  <Card title="Errors and denials" icon="circle-exclamation" href="/agents/errors-and-denials">
+    Every machine-readable code an agent can receive, and what fixes each.
+  </Card>
+  <Card title="Troubleshooting" icon="wrench" href="/agents/troubleshooting">
+    Connector setup, sign-in loops, unexpected stops, and kill-switch recovery.
+  </Card>
+</CardGroup>
 
 <Note>
 An agent acts on behalf of a verified person or business. Compliance screening and transaction monitoring apply to agent activity exactly as they do to human activity.

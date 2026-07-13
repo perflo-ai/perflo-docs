@@ -1,8 +1,12 @@
 ---
 title: "Futures"
-description: "Trade crypto, US stocks, commodities, FX, and indices around the clock on Hyperliquid."
+description: "Trade crypto, US stocks, commodities, FX, and indices around the clock on a public derivatives order book."
 icon: "chart-line"
 ---
+
+import RiskNote from '/snippets/risk-note.mdx';
+
+**Goal:** open, protect, and manage a leveraged position. You need a verified, funded account — trading unlocks once your balance passes the investing threshold, and availability depends on your country (see [Guardrails](/concepts/guardrails)).
 
 Futures on Perflo are perpetual futures executed on Hyperliquid, the leading on-chain derivatives order book. Markets trade 24/7, including weekends, and cover:
 
@@ -27,17 +31,26 @@ You are trading perpetual futures on these markets, not holding the underlying s
   </Step>
   <Step title="Confirm">
     Margin is posted in USDC. Funding from your cash balance is one tap; Perflo handles the conversion and routing behind the scenes.
+
+    **You'll see:** the position under Open positions and in your activity feed, with live profit and loss.
   </Step>
 </Steps>
 
-## Managing positions
+## Managing and exiting positions
 
-Positions, unrealized profit and loss, funding payments, and liquidation prices update live. You can close partially or fully, adjust take-profit and stop-loss levels, and withdraw free margin back to your balance at any time.
+Positions, unrealized profit and loss, funding payments, and liquidation prices update live. You can close partially or fully, adjust take-profit and stop-loss levels, and withdraw free margin back to your balance at any time. Closing a position is never locked.
 
 ## Hedge protection
 
-Hedge protection is an optional feature for holders of gold or other spot assets. When enabled, Perflo maintains a short futures position sized against your holding, so that a price drop in the asset is offset by a gain on the hedge. The position adjusts automatically as your holding changes. It reduces downside, and it also caps upside while active. You can turn it off at any time.
+Hedge protection is an optional feature for holders of spot assets such as BTC, ETH, or gold. When enabled, Perflo maintains a short futures position sized against your holding, so that a price drop in the asset is offset by a gain on the hedge. The position adjusts automatically as your holding changes. It reduces downside, and it also caps upside while active. You can turn it off at any time.
+
+## If something goes wrong
+
+- **Trading is locked?** Your balance may be below the investing threshold, or leveraged trading may be restricted in your country — see [Getting started troubleshooting](/getting-started/troubleshooting).
+- **An agent's trade was denied?** Leverage, per-trade, and total-exposure codes are explained in [Errors and denials](/agents/errors-and-denials); the limits themselves are in [Guardrails](/concepts/guardrails).
 
 <Warning>
 Leveraged trading is high risk. You can lose your entire margin quickly, and funding rates cost money over time on leveraged positions. Perpetual futures on stocks and commodities are synthetic markets and can trade at prices that differ from official market hours prices. Never trade with money you cannot afford to lose.
 </Warning>
+
+<RiskNote />

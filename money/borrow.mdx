@@ -1,28 +1,32 @@
 ---
 title: "Borrow"
-description: "Borrow dollars against your gold without selling it. Health monitored around the clock."
+description: "Borrow dollars against your assets without selling them. Loan health is monitored around the clock."
 icon: "hand-holding-dollar"
 ---
 
-Borrowing lets you unlock cash from your gold while keeping your gold position. Loans are over-collateralized lending positions on Morpho, a public, audited lending protocol: your XAUT is the collateral, and you borrow USDT against it.
+import RiskNote from '/snippets/risk-note.mdx';
+
+**Goal:** cash in your balance without selling your holdings. You need a verified, funded account with assets to pledge — borrowing unlocks once your balance passes the investing threshold (see [Guardrails](/concepts/guardrails)).
+
+Borrowing lets you unlock cash from your holdings while keeping your position. Loans are over-collateralized lending positions on Morpho, a public, audited lending protocol: you pledge a supported asset as collateral and borrow USDT against it. The app shows which collateral markets are available to you.
 
 ## Opening a loan
 
 <Steps>
   <Step title="Choose collateral">
-    Select how much of your gold to pledge.
+    Select which asset and how much of it to pledge.
   </Step>
   <Step title="Choose how much to borrow">
     The app shows the maximum you can borrow and, more importantly, a safe recommended amount below it.
   </Step>
   <Step title="Confirm">
-    Borrowed dollars land in your cash balance immediately. Interest accrues at the variable market rate shown before you confirm.
+    **You'll see:** borrowed dollars in your cash balance immediately, and the new loan with its health factor on your loans screen. Interest accrues at the variable market rate shown before you confirm.
   </Step>
 </Steps>
 
 ## Health factor, in plain terms
 
-Every loan has a health factor: the cushion between your collateral value and your debt. If gold falls in price, your health factor drops. If it drops far enough, the protocol liquidates part of your collateral to repay the debt, and liquidation carries a penalty. This is a property of on-chain lending, not a Perflo decision, and it is the main risk of borrowing.
+Every loan has a health factor: the cushion between your collateral value and your debt. If your collateral falls in price, your health factor drops. If it drops far enough, the lending protocol liquidates part of your collateral to repay the debt, and liquidation carries a penalty. This is a property of public lending markets, not a Perflo decision, and it is the main risk of borrowing.
 
 Perflo monitors your loan health continuously, around the clock, and:
 
@@ -32,10 +36,17 @@ Perflo monitors your loan health continuously, around the clock, and:
 
 You can also set an automation to protect a loan automatically, for example: if health drops below a threshold, add collateral from my balance. See [AI agents](/agents/overview).
 
-## Managing a loan
+## Managing and closing a loan
 
-At any time you can add collateral, withdraw collateral (within safe bounds), borrow more, repay partially, or close the position entirely. Repayment comes from your cash balance; closing returns your collateral in full.
+At any time you can add collateral, withdraw collateral (within safe bounds), borrow more, repay partially, or close the position entirely. Repayment comes from your cash balance; closing returns your collateral in full. Exiting is never locked.
+
+## If something goes wrong
+
+- **A health warning arrived?** Open the loan and use the one-tap fix — add collateral or repay. Acting early is cheap; liquidation is not.
+- **An agent's borrow was denied?** `GUARD_MAX_LTV` and the other borrow codes are explained in [Errors and denials](/agents/errors-and-denials) — the LTV check is deliberately conservative, projected against the worst case.
 
 <Warning>
 Borrowing against a volatile asset can lead to liquidation and loss of collateral. Borrow conservatively and keep alerts on.
 </Warning>
+
+<RiskNote />

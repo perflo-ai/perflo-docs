@@ -1,6 +1,6 @@
 ---
 title: "Fees and limits"
-description: "What you pay, what is sponsored, and what determines your limits."
+description: "What you pay, what Perflo sponsors, which costs come from venues, and what determines your limits."
 icon: "receipt"
 ---
 
@@ -16,16 +16,21 @@ All blockchain network fees (gas) are paid by Perflo. You never buy or hold a ga
 
 Because Perflo routes to public venues, some costs are set by those venues and passed through transparently:
 
-- **Trading:** venue trading fees, spreads, and (on leveraged positions) funding rates set by Hyperliquid market conditions.
-- **Prediction markets:** spreads and any venue fees on Polymarket.
-- **Conversions:** the live market rate plus any spread, shown as a single all-in quote.
-- **Yield and borrowing:** rates on Morpho are variable and set by market supply and demand. The current rate is always displayed before you deposit or borrow.
-- **Cards and fiat:** any card processing or payout cost is itemized on the confirmation screen.
+| Area | Cost type | Set by |
+|:---|:---|:---|
+| Trading (futures) | Venue trading fees, spreads, funding rates on leveraged positions | Hyperliquid market conditions |
+| Prediction markets | Spreads and any venue fees | Polymarket |
+| Conversions | Live market rate plus any spread, shown as one all-in quote | Aggregated public markets |
+| Yield and borrowing | Variable rates, always displayed before you deposit or borrow | Morpho market supply and demand |
+| Cards and payouts | Any card processing or payout cost, itemized before you confirm | Card and banking partners |
+| Agent services | Per-request price, quoted before payment | Each marketplace service |
 
 ## Limits
 
-Your limits depend on your verification level, your country, and the type of account (individual or business). The app shows your current limits in settings, and shows the applicable limit inline whenever you are close to one. Agent spending is additionally limited by the guardrail caps you configure yourself. See [Guardrails](/concepts/guardrails).
+Your limits depend on your verification level, your country, and the type of account (individual or business). The app shows your current limits in settings, and shows the applicable limit inline whenever you are close to one.
+
+Agent spending is additionally limited by the guardrail caps you configure yourself — every default and platform maximum is listed on [Guardrails](/concepts/guardrails), and the codes agents receive when they hit a limit are on [Errors and denials](/agents/errors-and-denials).
 
 <Note>
-Fees and limits can change. The confirmation screen and the fees section in settings are always the source of truth, not cached screenshots or third-party posts.
+Fees and limits can change; changes that affect you are announced in the [changelog](/changelog). The confirmation screen and the fees section in settings are always the source of truth, not cached screenshots or third-party posts.
 </Note>

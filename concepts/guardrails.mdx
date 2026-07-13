@@ -15,7 +15,97 @@ When you enable agent spending or an automation, you create a session with:
 - **Asset restrictions.** The session can only spend the assets you chose.
 - **Expiry.** Sessions expire on their own (30 days by default, 90 days maximum) and must be renewed by you.
 
-Perflo evaluates every single spend against these rules before any signature exists. If a request fails the check, it is denied and logged, and your agent receives a clear machine-readable error instead of your money.
+Perflo evaluates every single spend against these rules before any signature exists. If a request fails the check, it is denied and logged, and your agent receives a clear machine-readable error instead of your money — every code is documented on [Errors and denials](/agents/errors-and-denials).
+
+## Per-area limits
+
+On top of session caps, every area of Perflo has its own rulebook that agents must operate inside. Three things are true of every rule:
+
+- **They apply to agents, not to you.** Anything you do yourself in the app is never blocked by an agent limit.
+- **Every rule has a default**, so an agent is protected from day one even if you never touch settings.
+- **Adjustable rules have a platform maximum.** You can raise a limit up to that ceiling, but no one — not you, and certainly not an agent — can set it higher.
+
+A dash (—) below means there is no platform maximum; the limit is simply whatever you set. Defaults are conservative starting points and may be tuned over time; the values that apply to your account are always shown in the app.
+
+### Trading (futures)
+
+| Limit | Default | Highest you can set |
+| --- | --- | --- |
+| Maximum leverage | 5x | 25x |
+| Largest single trade | $1,000 | $50,000 |
+| Total open across all positions | $10,000 | — |
+| Amount opened per rolling 24 hours | Off | — |
+| Allowed markets | All | Restrict to a list you choose |
+
+### Predictions
+
+| Limit | Default | Highest you can set |
+| --- | --- | --- |
+| Largest single bet | $100 | $5,000 |
+| Bet spend per day / week / month | Off | — |
+| Minimum market activity | $50,000 traded in 24h | — |
+| Minimum implied chance of winning | 30% | — |
+
+The last two are quality filters: an agent is refused entry to thin, illiquid markets and refused long-shot bets priced below your chosen probability floor — measured against the live market price, not a stale quote.
+
+### Earn
+
+| Limit | Default | Highest you can set |
+| --- | --- | --- |
+| Minimum yield to accept | 3% per year | — |
+| Smallest single deposit | $10 | — |
+| Largest single deposit | $5,000 | $50,000 |
+| Deposits per day / week / month | Off | — |
+| Total amount in Earn | $25,000 | — |
+
+### Borrow
+
+| Limit | Default | Highest you can set |
+| --- | --- | --- |
+| Maximum borrowing rate to accept | 15% per year | — |
+| Smallest single borrow | $10 | — |
+| Largest single borrow | $5,000 | $50,000 |
+| Maximum loan-to-value | 50% | — |
+| Total outstanding debt | $25,000 | — |
+
+Loan-to-value is how much is borrowed against the value of the collateral backing it. The cap is checked against the *projected* position — what your loan would look like after the borrow, in the worst case — so an agent cannot inch you toward liquidation risk.
+
+### Buying and converting assets
+
+| Limit | Default | Highest you can set |
+| --- | --- | --- |
+| Maximum price movement on a conversion | 3% | 5% |
+| Largest single conversion | $1,000 | $25,000 |
+| Conversions per rolling 24 hours | Off | — |
+
+The price-movement limit works differently from the others: instead of denying the request, Perflo rewrites it. An agent that asks for a looser tolerance is simply held to yours, and the check is applied again at the moment of execution.
+
+## Only you can change the rules
+
+Agents can read your limits — so they can plan within them — but can never write them.
+
+- Every rule change must be confirmed by you, from your own device. The confirmation is cryptographically tied to the exact change you approved, is valid for only a few minutes, and cannot be reused.
+- A change above the platform maximum is rejected outright.
+- Changes take effect immediately — including tightening a limit on an agent that is mid-task.
+
+## How every request is checked
+
+Every agent-initiated action is evaluated against your rules **before** it is executed — before any money moves and before any approval exists. The checks are built to fail closed:
+
+- **If Perflo cannot determine the dollar value of a request, the request is denied.** No guessing, no benefit of the doubt.
+- **Cumulative caps count money that is still in flight.** Two simultaneous requests cannot each squeeze under a cap that only has room for one; the amount is reserved when the check passes and only released if the action fails.
+- **A denial is final for that request.** It cannot be swallowed by a retry path or rerouted through a fallback.
+- **The checks themselves are mandatory.** Perflo's servers refuse to start at all if any area of the platform is missing its rule checker.
+
+When a request is denied, it is logged to your activity feed and the agent receives a stable machine-readable code with the limit and the attempted amount — so a well-built agent can explain exactly why it stopped, and adjust. The complete code reference is on [Errors and denials](/agents/errors-and-denials).
+
+## Bank withdrawals go to one place
+
+Withdrawals to a bank account can only be sent to the destination you verified. If that destination ever changes, all bank withdrawals pause until you approve the new one with a one-time confirmation in the Perflo app. An agent cannot add or switch the payout destination on its own — that approval always comes from you.
+
+## Investing activates with funding
+
+Investing features — buying assets, trading, predictions, Earn deposits, borrowing — stay locked until your account is funded past a minimum threshold, and this is enforced on Perflo's servers for every client identically: the app, an agent, and the developer API all pass through the same gate. Getting money **out** is never locked: selling, withdrawing, repaying, and closing positions always work.
 
 ## The kill switch
 
@@ -24,13 +114,24 @@ One tap (or one command: stop agent spending) revokes agent spending instantly a
 ## What guardrails cannot be used for
 
 - They cannot approve withdrawals to new external addresses. That always requires you.
-- They cannot raise their own limits. Limit changes require you.
+- They cannot raise their own limits. Limit changes require you — confirmed from your device, capped by platform maximums.
 - They cannot outlive their expiry.
 
 ## Alerts and visibility
 
 Every automated action appears in your activity feed in real time, labeled with which session performed it. You can set alerts on spend velocity, and loan health on borrowed positions is monitored continuously with warnings before a position approaches risk. A morning brief can summarize everything your automations did.
 
+## Related pages
+
+- [Agent security](/agents/security) — the threat model these rules defend against
+- [Errors and denials](/agents/errors-and-denials) — every denial code and what fixes it
+- [Agent spending and budgets](/agents/spending-and-budgets) — budgets, auto top-up, statements
+- [Agent troubleshooting](/agents/troubleshooting) — when an agent stops and you're not sure why
+
 <Tip>
 Start small. Give a new agent a low daily cap and a short expiry, watch it work for a week, then raise limits if you are happy. Limits take effect immediately.
 </Tip>
+
+<Note>
+Guardrails limit what an agent can do with your account; they do not remove market risk. Trading, predictions, yield, and borrowing can all lose money within your limits. Nothing in these docs is investment advice. Feature availability may vary by region.
+</Note>

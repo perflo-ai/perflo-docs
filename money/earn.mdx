@@ -1,10 +1,14 @@
 ---
 title: "Earn"
-description: "Put idle cash to work in on-chain yield vaults. Variable rates, withdraw anytime."
+description: "Put idle cash to work in audited public lending vaults. Variable rates, withdraw anytime."
 icon: "percent"
 ---
 
-Earn moves idle balance into audited on-chain lending vaults (Morpho vaults) where it is lent out to over-collateralized borrowers. Interest accrues to you continuously.
+import RiskNote from '/snippets/risk-note.mdx';
+
+**Goal:** interest accruing on cash you're not using, withdrawable whenever you want it back. You need a verified, funded account — Earn unlocks once your balance passes the investing threshold (see [Guardrails](/concepts/guardrails)).
+
+Earn moves idle balance into audited public lending vaults (Morpho vaults) where it is lent out to over-collateralized borrowers. Interest accrues to you continuously.
 
 ## How it works
 
@@ -16,7 +20,7 @@ Earn moves idle balance into audited on-chain lending vaults (Morpho vaults) whe
     Move any amount from your balance into the vault. The current variable APY is shown before you confirm.
   </Step>
   <Step title="Watch it accrue">
-    Your position and earned interest update in the app. Rates float with market supply and demand.
+    **You'll see:** your position and earned interest updating in the app. Rates float with market supply and demand.
   </Step>
   <Step title="Withdraw anytime">
     Withdraw back to your balance whenever you like, subject to vault liquidity at that moment.
@@ -26,10 +30,23 @@ Earn moves idle balance into audited on-chain lending vaults (Morpho vaults) whe
 ## Automations that pair well with Earn
 
 - **Idle cash sweep:** automatically move balance above a buffer you set into Earn, and pull it back when you need it.
-- **Round-ups:** sweep card round-ups into Earn or gold.
+- **Round-ups:** sweep card round-ups into Earn or into an asset you choose.
 
 See [AI agents](/agents/overview) for how to set these up in plain language.
 
 ## What the yield is, honestly
 
-Yield comes from borrowers paying interest on over-collateralized loans in the vault's markets. It is variable, it is not a bank deposit, and it is not insured. Vault contracts are public and audited, and the exact vault your money sits in is verifiable on-chain. Displayed APY is the current rate, not a promise of future rates.
+Yield comes from borrowers paying interest on over-collateralized loans in the vault's markets. It is variable, it is not a bank deposit, and it is not insured. Vault contracts are public and audited, and the exact vault your money sits in is independently verifiable. Displayed APY is the current rate, not a promise of future rates.
+
+## If something goes wrong
+
+- **Deposit refused?** Check your balance is above the investing threshold, and that the deposit is within your Earn limits in [Guardrails](/concepts/guardrails).
+- **An agent's deposit was denied?** `GUARD_MIN_APY` and the other Earn codes are explained in [Errors and denials](/agents/errors-and-denials).
+- **Withdrawal slow?** Withdrawals depend on vault liquidity at that moment; the app shows what's available now.
+
+## Next steps
+
+- [Borrow](/money/borrow) — unlock cash from assets without selling them.
+- [Agent spending and budgets](/agents/spending-and-budgets) — let an agent manage the sweep for you, within caps.
+
+<RiskNote />

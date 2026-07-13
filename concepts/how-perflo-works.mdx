@@ -1,6 +1,6 @@
 ---
 title: "How Perflo works"
-description: "Self-custody, session permissions, and public venues. What Perflo can and cannot do with your money."
+description: "Self-custody, session permissions, and public venues. What Perflo can and cannot do with your money — and the trade-offs."
 icon: "diagram-project"
 ---
 
@@ -10,9 +10,11 @@ Perflo looks like a banking app, but it is built differently underneath. Underst
 
 When you sign up, Perflo provisions a smart account on public blockchains. You control it. Perflo does not hold your assets in an omnibus company wallet, and it cannot move your money by itself. If you ever want to verify a balance or a transaction, you can look up your own address on a public block explorer.
 
+**Related:** [Create your account](/getting-started/create-account) · [Security](/reference/security)
+
 ## 2. Actions run under permissions you grant
 
-Doing things for you (executing a trade you tapped, running an automation you set, letting your AI agent spend within a budget) requires permission. You grant these as sessions: narrow, expiring permissions with hard limits attached. A session for agent spending, for example, carries caps per hour, day, and month, a list of allowed recipients, and an expiry date. Perflo checks the limits before anything is signed, and the limits themselves are enforced by the account, not by trust.
+Doing things for you (executing a trade you tapped, running an automation you set, letting your AI agent spend within a budget) requires permission. You grant these as sessions: narrow, expiring permissions with hard limits attached. A session for agent spending, for example, carries caps per hour, day, and month, a list of allowed recipients, and an expiry date. Perflo checks the limits before anything is approved, and the limits themselves are enforced by the account, not by trust.
 
 Two things never happen under a session:
 
@@ -20,6 +22,8 @@ Two things never happen under a session:
 - No session can raise its own limits. Only you can.
 
 You can view and revoke every active permission in settings at any time.
+
+**Related:** [Guardrails](/concepts/guardrails) · [Connect an agent](/agents/connect)
 
 ## 3. Everything routes to public venues
 
@@ -29,7 +33,7 @@ Perflo runs no exchange, holds no order book, and never takes the other side of 
 |---|---|
 | Futures trading | Hyperliquid |
 | Prediction markets | Polymarket |
-| Gold, BTC, ETH conversion | On-chain DEX aggregation |
+| Asset conversion (BTC, ETH, gold) | Aggregated public markets |
 | Borrowing | Morpho |
 | Yield | Morpho vaults |
 | Agent pay-per-call payments | x402 protocol |
@@ -37,6 +41,20 @@ Perflo runs no exchange, holds no order book, and never takes the other side of 
 | Bank transfers and payouts | Local banking rails |
 
 Prices, rates, and liquidity come from those venues. Perflo's job is execution, safety, and a single clean balance across all of it.
+
+## What this design costs you, honestly
+
+Self-custody and public venues are a trade, not a free lunch:
+
+- **No deposit insurance.** Your balance is not a bank deposit. What protects it instead — your own account, verifiable holdings, issuer reserves — is explained on [Cash](/money/cash).
+- **Market conditions are real.** Rates, spreads, and liquidity come from public venues; Perflo passes them through rather than smoothing them over. See [Fees and limits](/concepts/fees-and-limits).
+- **What you get back:** Perflo can never lend out your balance, freeze it for its own reasons, or fail with your money on its books. And everything is checkable — you never have to take our word for anything.
+
+## What Perflo is not
+
+- **Not an exchange.** No order book, never your counterparty.
+- **Not a bank.** A compliant money platform with an MSB registration; banking services run on regulated partner rails.
+- **Not a custodian.** Your account is yours; Perflo operates services around it under permissions you can revoke.
 
 ## No gas, ever
 

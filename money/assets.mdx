@@ -1,0 +1,61 @@
+---
+title: "Assets"
+description: "Buy and hold BTC, ETH, and gold from small amounts. Automate your buying, gift assets, or borrow against them."
+icon: "chart-pie"
+---
+
+import RiskNote from '/snippets/risk-note.mdx';
+
+**Goal:** own assets directly from your cash balance, from small amounts. You need a verified, funded account — investing features unlock once your balance passes a minimum threshold (see [Guardrails](/concepts/guardrails)).
+
+Perflo lets you buy and hold assets directly from your cash balance:
+
+- **BTC and ETH:** held as standard wrapped representations (WBTC, WETH) on Ethereum.
+- **Gold:** held as XAUT (Tether Gold), where one token represents one troy fine ounce of allocated physical gold held by the issuer.
+
+You can hold fractions of any asset, so you can start small. Every token contract is documented on [Networks and contracts](/reference/networks-and-contracts).
+
+## Buying and selling
+
+<Steps>
+  <Step title="Pick an asset and an amount">
+    Choose any supported asset and how much of your cash balance to convert. Historical stats are shown for each asset, and gold can be displayed in grams or ounces.
+  </Step>
+  <Step title="Review the live quote">
+    The quote you approve is the price you get. Conversion executes through aggregated public markets for best execution.
+  </Step>
+  <Step title="Confirm">
+    **You'll see:** the asset in your portfolio immediately, and the conversion in your activity feed.
+  </Step>
+</Steps>
+
+Selling works the same way in reverse — any asset converts back to your cash balance at a live quote, anytime. Getting money out is never locked.
+
+## Automatic buying
+
+Set a standing instruction and Perflo buys for you automatically:
+
+- **On deposit:** convert a percentage of every incoming deposit (for example, 20% of your salary) into the assets you choose the moment it arrives.
+- **On schedule:** buy a fixed amount daily, weekly, or monthly.
+- **On rules:** with AI automations, buy on conditions you describe in plain language, such as a price dip. See [AI agents](/agents/overview).
+
+Pause or edit standing instructions at any time.
+
+## Gifting
+
+Send an asset to anyone with an email address or phone number. The recipient gets a claim link; when they sign up and verify, the asset is theirs. Unclaimed gifts return to you after the claim window shown at send time.
+
+## Borrowing against your assets
+
+You do not need to sell an asset to unlock cash. You can borrow dollars against it. See [Borrow](/money/borrow).
+
+## If something goes wrong
+
+- **The buy button is locked?** Your balance may be below the investing activation threshold — see [Getting started troubleshooting](/getting-started/troubleshooting).
+- **A conversion was refused for an agent?** Check the code against [Errors and denials](/agents/errors-and-denials).
+
+<Warning>
+Asset prices move. BTC, ETH, and gold can all lose value in dollar terms, and holdings are not deposit-insured. Verify token contracts on [Networks and contracts](/reference/networks-and-contracts).
+</Warning>
+
+<RiskNote />

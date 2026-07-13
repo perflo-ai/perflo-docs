@@ -4,23 +4,25 @@ description: "Virtual bank accounts with local details in ten currencies. First-
 icon: "building-columns"
 ---
 
+**Goal:** a bank account with real local details, in your name, that settles into your Perflo balance. Individuals need KYC and businesses need KYB before accounts are issued.
+
 Verified individuals and businesses can open virtual bank accounts with real local account details: an account number and routing details in the local format, in your name. Money sent to these accounts lands in your Perflo balance.
 
 ## Live currencies and rails
 
-| Currency | Local rails |
-|---|---|
-| AED | IPP (instant), FTS |
-| USD | ACH, Wire, RTP (US local), SWIFT (global) |
-| EUR | SEPA, SEPA Instant |
-| GBP | Faster Payments, BACS, CHAPS |
-| BRL | PIX, TED |
-| MXN | SPEI |
-| COP | BRE-B |
-| NGN | NIP |
-| PHP | InstaPay, PESONet |
+| Currency | Country / region | Local rails |
+|:---|:---|:---|
+| AED | United Arab Emirates | IPP (instant), FTS |
+| USD | United States | ACH, Wire, RTP (US local), SWIFT (global) |
+| EUR | Eurozone | SEPA, SEPA Instant |
+| GBP | United Kingdom | Faster Payments, BACS, CHAPS |
+| BRL | Brazil | PIX, TED |
+| MXN | Mexico | SPEI |
+| COP | Colombia | BRE-B |
+| NGN | Nigeria | NIP |
+| PHP | Philippines | InstaPay, PESONet |
 
-More currencies are added over time; the app always shows what is available to you.
+More currencies are added over time; the app always shows what is available to you, and additions land in the [changelog](/changelog).
 
 ## First-party and third-party pay-ins
 
@@ -29,11 +31,17 @@ More currencies are added over time; the app always shows what is available to y
 
 ## What happens when money arrives
 
-Incoming fiat settles into your cash balance automatically. If you have standing instructions (for example, convert 20% of every deposit to gold), they run on arrival. You get a notification either way.
+Incoming money settles into your cash balance automatically. If you have standing instructions (for example, invest 20% of every deposit into assets you choose), they run on arrival.
+
+**You'll see:** a notification and an activity-feed entry either way.
 
 ## Recurring funding from your bank
 
 You can link a bank account once and approve a pull mandate with a cap you set. Perflo can then pull top-ups on a schedule or when your balance runs low, always within your cap. Cancel the mandate anytime.
+
+## If something goes wrong
+
+A transfer that hasn't arrived is covered in [Getting started troubleshooting](/getting-started/troubleshooting); problems sending money out are in [Cards and payouts troubleshooting](/cards-banking/troubleshooting).
 
 <Note>
 Virtual accounts are provided on regulated rails under Perflo's MSB registration and compliance program. Individuals require KYC and businesses require KYB before accounts are issued.
