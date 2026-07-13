@@ -1,0 +1,38 @@
+---
+title: "Connect an agent"
+description: "Add Perflo to Claude, ChatGPT, or any MCP client, or use the CLI for coding agents."
+icon: "plug"
+---
+
+## Connect Claude, ChatGPT, or another AI app (MCP)
+
+Perflo ships an MCP server, the open standard that lets AI assistants use external tools. Once connected, your assistant can see your Perflo tools and act within your permissions.
+
+<Steps>
+  <Step title="Open your assistant's connector settings">
+    In Claude: Settings, then Connectors, then Add custom connector. Other MCP clients have an equivalent screen.
+  </Step>
+  <Step title="Add the Perflo MCP server">
+    Enter the Perflo MCP URL shown in your app under Agent settings.
+  </Step>
+  <Step title="Sign in and approve">
+    You will be taken through a secure sign-in (OAuth) to link your Perflo account. You approve exactly which capabilities the assistant gets.
+  </Step>
+  <Step title="Set a budget">
+    Before the agent can spend, create a guardrail session: caps, allowlist, expiry. See [Agent spending and budgets](/agents/spending-and-budgets).
+  </Step>
+</Steps>
+
+Then just talk: "what is my balance," "buy 2 grams of gold," "research this and email me a summary" all work in plain language.
+
+## Connect a coding agent (CLI)
+
+For developers and autonomous coding agents, the Grant CLI provides the same capabilities from the terminal. Generate a skill file from the app, paste it into your coding agent's workspace, and the agent can call Perflo capabilities and pay for third-party APIs per call, inside the same guardrails. No API keys to manage per vendor.
+
+## Revoking access
+
+Every connected app appears in settings with its own permission set. Revoke one connection, or hit the kill switch to stop all agent spending at once. Revocation is immediate.
+
+<Warning>
+Only connect assistants and apps you trust, and grant the minimum permissions the job needs. Guardrails cap the damage a misbehaving agent can do, but the best protection is a short allowlist and a low cap.
+</Warning>

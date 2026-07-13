@@ -1,0 +1,58 @@
+---
+title: "Networks and contracts"
+description: "The chains, tokens, and contract addresses behind your Perflo balance. Verify everything yourself."
+icon: "link"
+---
+
+Perflo is built on public blockchains, which means you can independently verify every asset you hold and every venue your money touches. This page is the canonical list. If an address you see anywhere else does not match this page, do not trust it.
+
+<Warning>
+Perflo will never send you a contract or deposit address by email, DM, or chat. Deposit addresses live inside the app; token contracts live on this page. Anything else is a scam.
+</Warning>
+
+## Networks
+
+| Network | Chain ID | Used for | Explorer |
+|---|---|---|---|
+| Ethereum | 1 | Cash, gold (XAUT), swaps, Earn, Borrow | [etherscan.io](https://etherscan.io) |
+| Base | 8453 | Agent pay-per-call payments (x402) | [basescan.org](https://basescan.org) |
+| Polygon | 137 | Prediction markets (Polymarket, USDC settlement) | [polygonscan.com](https://polygonscan.com) |
+| Arbitrum One | 42161 | Futures funding route (USDC) | [arbiscan.io](https://arbiscan.io) |
+| Hyperliquid | L1 (own chain) | Futures trading and margin | [app.hyperliquid.xyz](https://app.hyperliquid.xyz) |
+
+Stablecoin deposit addresses are additionally supported on Optimism, Avalanche, Solana, and Tron. The app always shows which networks are valid for a given deposit.
+
+## Token contracts
+
+| Token | Network | Contract address | Decimals |
+|---|---|---|---|
+| USDT (Tether USD) | Ethereum | `0xdAC17F958D2ee523a2206206994597C13D831ec7` | 6 |
+| USDC (Circle) | Ethereum | `0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48` | 6 |
+| XAUT (Tether Gold) | Ethereum | `0x68749665FF8D2d112Fa859AA293F07A622782F38` | 6 |
+| WETH (Wrapped Ether) | Ethereum | `0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2` | 18 |
+| WBTC (Wrapped BTC) | Ethereum | `0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599` | 8 |
+| USDC (native) | Base | `0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913` | 6 |
+| USDC (native) | Arbitrum One | `0xaf88d065e77c8cC2239327C5EDb3A432268e5831` | 6 |
+| USDC.e (bridged) | Polygon | `0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174` | 6 |
+
+Notes:
+
+- One XAUT represents one troy fine ounce of physical allocated gold, issued by Tether.
+- BTC and ETH exposure in swaps uses standard wrapped representations on Ethereum; the exact token is shown on the confirmation screen before you approve.
+- Prediction markets settle in the Polygon USDC used by Polymarket.
+
+## Protocol contracts
+
+| Protocol | Network | Contract address |
+|---|---|---|
+| Morpho (lending and vaults) | Ethereum | `0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb` |
+
+Venue-specific contracts (Polymarket's exchange contracts, Hyperliquid's bridge) are published in those venues' own documentation, which is the authoritative source for them.
+
+## Your own address
+
+Your Perflo account is a smart account you control. Find your address in the app under settings, and look it up on any explorer above to independently verify your balances and history.
+
+<Note>
+Contract addresses on this page were verified against the issuers' official documentation and block explorers. If a token migrates or a new network is added, this page is updated first.
+</Note>

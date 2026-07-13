@@ -1,0 +1,36 @@
+---
+title: "Guardrails"
+description: "Hard limits, allowlists, expiry, and a kill switch. How Perflo keeps automated money movement safe."
+icon: "shield-check"
+---
+
+Guardrails are the safety layer that makes automation and AI agents safe to use with real money. Every automated actor on your account, whether a simple rule you wrote or a full AI agent, operates inside them.
+
+## What a guardrail session contains
+
+When you enable agent spending or an automation, you create a session with:
+
+- **Spending caps** per hour, per day, and per month. Once a cap is hit, spending stops until the window resets.
+- **Recipient allowlist.** Money can only go to services and addresses on the list.
+- **Asset restrictions.** The session can only spend the assets you chose.
+- **Expiry.** Sessions expire on their own (30 days by default, 90 days maximum) and must be renewed by you.
+
+Perflo evaluates every single spend against these rules before any signature exists. If a request fails the check, it is denied and logged, and your agent receives a clear machine-readable error instead of your money.
+
+## The kill switch
+
+One tap (or one command: stop agent spending) revokes agent spending instantly across every connected app. Nothing pending survives it. You can also revoke any individual permission from settings without touching the others.
+
+## What guardrails cannot be used for
+
+- They cannot approve withdrawals to new external addresses. That always requires you.
+- They cannot raise their own limits. Limit changes require you.
+- They cannot outlive their expiry.
+
+## Alerts and visibility
+
+Every automated action appears in your activity feed in real time, labeled with which session performed it. You can set alerts on spend velocity, and loan health on borrowed positions is monitored continuously with warnings before a position approaches risk. A morning brief can summarize everything your automations did.
+
+<Tip>
+Start small. Give a new agent a low daily cap and a short expiry, watch it work for a week, then raise limits if you are happy. Limits take effect immediately.
+</Tip>

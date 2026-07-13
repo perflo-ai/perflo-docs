@@ -1,0 +1,41 @@
+---
+title: "Borrow"
+description: "Borrow dollars against your gold without selling it. Health monitored around the clock."
+icon: "hand-holding-dollar"
+---
+
+Borrowing lets you unlock cash from your gold while keeping your gold position. Loans are over-collateralized lending positions on Morpho, a public, audited lending protocol: your XAUT is the collateral, and you borrow USDT against it.
+
+## Opening a loan
+
+<Steps>
+  <Step title="Choose collateral">
+    Select how much of your gold to pledge.
+  </Step>
+  <Step title="Choose how much to borrow">
+    The app shows the maximum you can borrow and, more importantly, a safe recommended amount below it.
+  </Step>
+  <Step title="Confirm">
+    Borrowed dollars land in your cash balance immediately. Interest accrues at the variable market rate shown before you confirm.
+  </Step>
+</Steps>
+
+## Health factor, in plain terms
+
+Every loan has a health factor: the cushion between your collateral value and your debt. If gold falls in price, your health factor drops. If it drops far enough, the protocol liquidates part of your collateral to repay the debt, and liquidation carries a penalty. This is a property of on-chain lending, not a Perflo decision, and it is the main risk of borrowing.
+
+Perflo monitors your loan health continuously, around the clock, and:
+
+- warns you well before you approach risk,
+- shows you safe maximum amounts for borrowing more or withdrawing collateral, so you cannot stumble into danger through the app,
+- lets you fix a position in one tap by adding collateral or repaying.
+
+You can also set an automation to protect a loan automatically, for example: if health drops below a threshold, add collateral from my balance. See [AI agents](/agents/overview).
+
+## Managing a loan
+
+At any time you can add collateral, withdraw collateral (within safe bounds), borrow more, repay partially, or close the position entirely. Repayment comes from your cash balance; closing returns your collateral in full.
+
+<Warning>
+Borrowing against a volatile asset can lead to liquidation and loss of collateral. Borrow conservatively and keep alerts on.
+</Warning>

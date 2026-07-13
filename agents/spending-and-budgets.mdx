@@ -1,0 +1,40 @@
+---
+title: "Agent spending and budgets"
+description: "Pay-per-call services over x402, budgets with hard caps, and the kill switch."
+icon: "gauge-high"
+---
+
+## How agents pay for things
+
+Agents on Perflo pay for third-party services per call using the x402 protocol: an open standard where a service quotes a price over HTTP and the agent pays it in stablecoins (USDC or USDT) instantly, with settlement on the Base network (and Tempo as a second rail). No subscriptions, no API keys, no cards on file with dozens of vendors. Your agent pays cents for exactly what it uses.
+
+## The service marketplace
+
+Perflo curates a marketplace of verified pay-per-call services an agent can use out of the box: web search, deep research, email sending, image and video generation, phone calls, and a large catalog of data and automation services (including more than 20,000 Apify actors for scraping and data collection). Services are probe-verified before listing, and your agent can also describe a task in plain language and let Perflo pick the best vendor, with automatic failover if one fails.
+
+## Budgets
+
+Every spending session you grant has:
+
+- caps per hour, per day, and per month,
+- a recipient allowlist (services and addresses),
+- asset restrictions,
+- an expiry date (30 days default, 90 maximum).
+
+Every payment is checked against the budget before it is signed. Denials return a clear error to the agent and appear in your activity feed. Concurrent requests cannot race past a cap; accounting is atomic.
+
+## Auto top-up, your way
+
+You can create a rule that refills an agent's budget from your balance or Earn when it runs low, but only within a monthly ceiling you define. The ceiling cannot be raised by the agent.
+
+## The kill switch
+
+Say "stop agent spending" to your assistant, tap the switch in the app, or revoke the session in settings. All agent spending stops immediately, everywhere, and stays stopped until you re-enable it.
+
+## Statements
+
+Agent spending is itemized like a card statement: which service, which agent session, what price, when. Monthly statements make reconciliation straightforward for businesses.
+
+<Tip>
+A good starter budget: a small daily cap, five allowlisted services, 30-day expiry. Expand once you have watched a week of activity.
+</Tip>

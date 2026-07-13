@@ -1,0 +1,79 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Perflo",
+  "description": "Money accounts, cards, trading, and payments for people, businesses, and AI agents.",
+  "colors": {
+    "primary": "#C25A2B",
+    "light": "#E8843C",
+    "dark": "#E8843C"
+  },
+  "favicon": "/favicon.svg",
+  "navigation": {
+    "groups": [
+      {
+        "group": "Getting started",
+        "pages": [
+          "introduction",
+          "getting-started/create-account",
+          "getting-started/verify-identity",
+          "getting-started/fund-your-account"
+        ]
+      },
+      {
+        "group": "Core concepts",
+        "pages": [
+          "concepts/how-perflo-works",
+          "concepts/guardrails",
+          "concepts/fees-and-limits"
+        ]
+      },
+      {
+        "group": "Money",
+        "pages": [
+          "money/cash",
+          "money/gold",
+          "money/earn",
+          "money/borrow"
+        ]
+      },
+      {
+        "group": "Trading",
+        "pages": [
+          "trading/futures",
+          "trading/predictions"
+        ]
+      },
+      {
+        "group": "Cards and banking",
+        "pages": [
+          "cards-banking/virtual-cards",
+          "cards-banking/bank-accounts",
+          "cards-banking/payouts-and-transfers"
+        ]
+      },
+      {
+        "group": "AI agents",
+        "pages": [
+          "agents/overview",
+          "agents/connect",
+          "agents/spending-and-budgets"
+        ]
+      },
+      {
+        "group": "Reference",
+        "pages": [
+          "reference/networks-and-contracts",
+          "reference/supported-currencies",
+          "reference/security",
+          "reference/faq"
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "socials": {
+      "website": "https://perflo.ai"
+    }
+  }
+}
